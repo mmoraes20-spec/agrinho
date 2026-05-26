@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Agrinho - Agro Forte, Futuro Sustentável</title>
+    
+    <style>
+        /* Configurações Gerais e Cores do Agrinho */
+        :root {
+            --verde-escuro: #1b4d3e;
+            --verde-agro: #2e7d32;
+            --verde-claro: #a5d6a7;
+            --laranja-terra: #e65100;
+            --palha: #f1f8e9;
+            --branco: #ffffff;
+            --cinza-sombra: rgba(0, 0, 0, 0.1);
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--palha);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container do Jogo */
+        .jogo-container {
+            background-color: var(--branco);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px var(--cinza-sombra);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            border: 3px solid var(--verde-claro);
+        }
+
+        /* Cabeçalho */
+        h1 {
+            color: var(--verde-escuro);
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: var(--laranja-terra);
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* Painel de Pontuação e Equilíbrio */
+        .painel-status {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: var(--palha);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border: 1px solid var(--verde-claro);
+            gap: 15px;
+        }
+
+        .status-item {
+            font-weight: bold;
+            color: var(--verde-escuro);
+            flex: 1;
+        }
+
+        .status-item span {
+            display: block;
+            font-size: 24px;
+            color: var(--laranja-terra);
+        }
+
+        /* Barra de Equilíbrio Ambiental */
+        .barra-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
+            margin-top: 8px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+
+        #barra-equilibrio {
+            height: 100%;
+            width: 50%; /* Começa na metade (equilibrado) */
+            background-color: var(--verde-agro);
+            transition: width 0.5s ease, background-color 0.5s ease;
+        }
+
+        /* Caixa de Perguntas/Desafios */
+        .caixa-pergunta {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--verde-escuro);
+            margin-bottom: 25px;
+            min-height: 60px;
+            line-height: 1.4;
+        }
+
+        /* Botões de Decisão */
+        .opcoes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-opcao {
+            background-color: var(--branco);
+            border: 2px solid var(--verde-agro);
+            color: var(--verde-escuro);
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .btn-opcao:hover {
+            background-color: var(--verde-agro);
+            color: var(--branco);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--cinza-sombra);
+        }
+
+        .btn-opcao:active {
+            transform: translateY(0);
+        }
+
+        /* Tela de Fim de Jogo */
+        .oculto {
+            display: none !important;
+        }
+
+        #tela-final h3 {
+            font-size: 24px;
+            color: var(--verde
