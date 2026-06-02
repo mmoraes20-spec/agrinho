@@ -1,150 +1,235 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo do Agrinho - Agro Forte, Futuro Sustentável</title>
-    
-    <style>
-        /* Configurações Gerais e Cores do Agrinho */
-        :root {
-            --verde-escuro: #1b4d3e;
-            --verde-agro: #2e7d32;
-            --verde-claro: #a5d6a7;
-            --laranja-terra: #e65100;
-            --palha: #f1f8e9;
-            --branco: #ffffff;
-            --cinza-sombra: rgba(0, 0, 0, 0.1);
-        }
+/* =========================
+   Agro Forte - style.css
+========================= */
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--palha);
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Container do Jogo */
-        .jogo-container {
-            background-color: var(--branco);
-            border-radius: 15px;
-            box-shadow: 0 10px 20px var(--cinza-sombra);
-            padding: 30px;
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-            border: 3px solid var(--verde-claro);
-        }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f8f3;
+    color: #333;
+    line-height: 1.6;
+}
 
-        /* Cabeçalho */
-        h1 {
-            color: var(--verde-escuro);
-            font-size: 26px;
-            margin-bottom: 5px;
-        }
+/* HEADER */
 
-        h2 {
-            color: var(--laranja-terra);
-            font-size: 16px;
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
+header {
+    background: #2e7d32;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 
-        /* Painel de Pontuação e Equilíbrio */
-        .painel-status {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background-color: var(--palha);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            border: 1px solid var(--verde-claro);
-            gap: 15px;
-        }
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 30px;
 
-        .status-item {
-            font-weight: bold;
-            color: var(--verde-escuro);
-            flex: 1;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .status-item span {
-            display: block;
-            font-size: 24px;
-            color: var(--laranja-terra);
-        }
+nav h1 {
+    color: white;
+    font-size: 1.8rem;
+}
 
-        /* Barra de Equilíbrio Ambiental */
-        .barra-container {
-            width: 100%;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            height: 20px;
-            margin-top: 8px;
-            overflow: hidden;
-            border: 1px solid #ccc;
-        }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
 
-        #barra-equilibrio {
-            height: 100%;
-            width: 50%; /* Começa na metade (equilibrado) */
-            background-color: var(--verde-agro);
-            transition: width 0.5s ease, background-color 0.5s ease;
-        }
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
 
-        /* Caixa de Perguntas/Desafios */
-        .caixa-pergunta {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--verde-escuro);
-            margin-bottom: 25px;
-            min-height: 60px;
-            line-height: 1.4;
-        }
+nav a:hover {
+    color: #c8e6c9;
+}
 
-        /* Botões de Decisão */
-        .opcoes-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+/* HERO */
 
-        .btn-opcao {
-            background-color: var(--branco);
-            border: 2px solid var(--verde-agro);
-            color: var(--verde-escuro);
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: left;
-        }
+.hero {
+    height: 90vh;
 
-        .btn-opcao:hover {
-            background-color: var(--verde-agro);
-            color: var(--branco);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px var(--cinza-sombra);
-        }
+    background: linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.45)
+    ),
+    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1600");
 
-        .btn-opcao:active {
-            transform: translateY(0);
-        }
+    background-size: cover;
+    background-position: center;
 
-        /* Tela de Fim de Jogo */
-        .oculto {
-            display: none !important;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        #tela-final h3 {
-            font-size: 24px;
-            color: var(--verde
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h2 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* BOTÃO */
+
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #388e3c;
+}
+
+/* SEÇÕES */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 25px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.2rem;
+    color: #2e7d32;
+    margin-bottom: 25px;
+}
+
+.section p {
+    max-width: 900px;
+    margin: auto;
+    font-size: 1.1rem;
+}
+
+/* DESTAQUE */
+
+.destaque {
+    background: #e8f5e9;
+}
+
+/* CARDS */
+
+.cards {
+    margin-top: 40px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+    transition: 0.4s;
+
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+/* ANIMAÇÕES */
+
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.mostrar {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* FOOTER */
+
+footer {
+    background: #1b5e20;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        padding: 12px 24px;
+    }
+}
