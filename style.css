@@ -233,3 +233,9 @@ footer {
         padding: 12px 24px;
     }
 }
+/* CORREÇÃO DE EMERGÊNCIA - Garante que as seções fiquem visíveis */
+.section,
+.card {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
